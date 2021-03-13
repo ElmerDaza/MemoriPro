@@ -1,10 +1,7 @@
 import mysql.connector
 
 def Conectar():
-    DB_HOST = 'localhost'
-    DB_USER='root'
-    DB_PASS=''
-    DB_NAME='memori'
+    
     mydb = mysql.connector.connect(
         host="localhost",
         user="root",
@@ -36,17 +33,20 @@ def Registrar(palabra,consepto,tabla):
 
 #_________________________________________
 def TablaNueva(columnasNAME,tablaNAME):
+    dec =""
     BD = Conectar()
     mycursor = BD.cursor()
+    le=columnasNAME.__len__()
+    for i in range (0,le):
+        dec +="`"+format(columnasNAME[i])+"` TEXT NOT NULL ,"
+
     mycursor.execute(
         "CREATE TABLE `memori`.`"
         +tablaNAME+
-        "` ( `id` INT(50) NOT NULL AUTO_INCREMENT , `"
-        +Colum+"` TEXT NOT NULL , `"
-        +Colum2
-        +"` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB COMMENT = 'un comentario'"
+        "` ( `id` INT(50) NOT NULL AUTO_INCREMENT , "
+        +dec+" PRIMARY KEY (`id`)) ENGINE = InnoDB COMMENT = 'un comentario'"
         )
-    print("ya cree la tabla _"+palabra+" con las columnas _"+Colum+" _"+Colum2)
+    print("ya cree la tabla _"+tablaNAME+" con las columnas _")
             
     
 
