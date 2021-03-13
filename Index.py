@@ -72,7 +72,7 @@ with sr.Microphone() as source:
       
       
       
-    elif(string_ == "quiero crear una tabla"):
+    elif(string_ == "quiero crear una tabla" or string_ == "créame una tabla" or string_ == "quiero una tabla"):
         print("--------------------------------------------------------")
         print("Bueno Dime Como se va A llamar la tabla")
         print("--------------------------------------------------------")
