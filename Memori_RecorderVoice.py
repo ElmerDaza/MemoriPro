@@ -14,9 +14,13 @@ def escuchar():
             string_ = format(text)
             string_ = string_.lower()
     except Exception as e:
+        print("|")
+        print("|")
+        print("|")
+        print("|")
         print("Quizas no haya INTERNET ")
         print("Quieres ver el error error ")
-        
+        string_ = "error---"
         cn = input("escribe 'y' si es afirmativo _")
 
         if(cn=="y"):
